@@ -4,18 +4,15 @@ const amqp = require("amqplib");
 const app = express();
 const PORT = 3000;
 
-app.get("/users", async (req, res) => {
-  const connection = await amqp.connect("amqp://localhost");
-  const channel = await connection.createChannel();
+const connection = await amqp.connect("amqp://localhost");
+const channel = await connection.createChannel();
 
+app.get("/users", async (req, res) => {
   await channel.assertQueue("userQueue");
   for (let i = 0; i <= 5; i++) {
-    // setTimeout(()=>{
     let msg = JSON.stringify({ i });
     await channel.sendToQueue("userQueue", Buffer.from(msg));
-    // },2000)
   }
-  // await channel.sendToQueue("userQueue", Buffer.from("test new queue"));
 
   setTimeout(() => {
     channel.consume(
