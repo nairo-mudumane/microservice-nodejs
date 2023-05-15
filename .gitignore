@@ -160,4 +160,7 @@ dist
 # and uncomment the following lines
 # .pnp.*
 
+### docker ###
+.data/
+
 # End of https://www.toptal.com/developers/gitignore/api/dotenv,node,yarn
