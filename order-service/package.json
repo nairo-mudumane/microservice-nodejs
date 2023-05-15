@@ -1,0 +1,14 @@
+{
+  "name": "order-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18",
+    "npm": ">=9",
+    "yarn": ">=1.22"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.3"
+  }
+}
